@@ -11,8 +11,8 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $(NAME)
 
-$(NAME).o:	$(NAME).asm
-	$(NASM) $(NASMFLAGS) $(NAME).asm
+$(NAME).o:	$(NAME).s
+	$(NASM) $(NASMFLAGS) $(NAME).s
 
 clean:
 	find . -name *.o -exec rm {} \; 
