@@ -4,7 +4,6 @@ NASM   		=	nasm
 NASMFLAGS	=	-f elf64
 LD	   		=	ld
 LDFLAGS		=	
-VALGRIND	=	valgrind --leak-check=yes
 
 all:		$(NAME)
 
@@ -25,8 +24,3 @@ re:			fclean all
 t:			test
 test:		re
 	./$(NAME)
-
-v:			valgrind
-val:		valgrind
-valgrind:	re
-	$(VALGRIND) ./$(NAME)
