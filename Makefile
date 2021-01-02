@@ -6,12 +6,12 @@ NASMFLAGS	=	-f elf64
 LD			=	ld
 LDFLAGS		=
 CC			=	clang
-CCFLAGS		=	-Wall -Werror -Wextra
+CCFLAGS		=	-Wall -Werror -Wextra -v
 CCLINKS		=	-L -lasm
 CCSRCS		=	main.c
 
 all:		$(NAME)
-	$(CC) $(CCFLAGS) $(CCSRCS) $(CCLINKS) -o a.out
+	$(CC) $(CCFLAGS) $(CCLINKS) $(CCSRCS) -o a.out
 
 $(NAME):	$(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $(NAME).a
@@ -25,9 +25,6 @@ clean:
 fclean:		clean
 	rm -f $(NAME).a
 	rm -f a.out
-
-hello:		all
-	helloworld/helloworld
 
 re:			fclean all
 
