@@ -1,26 +1,39 @@
-NAME		=	libasm
-SRCS		=	ft_strlen.s
-OBJS		=	$(SRCS:.s=.o)
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
+#    Updated: 2021/01/28 16:05:40 by fde-capu         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		=	libasm.a
+PROOF_NAME	=	proof.out
+ASMSRCS		=	ft_strlen.s
+ASMOBJS		=	$(ASMSRCS:.s=.o)
 NASM		=	nasm
 NASMFLAGS	=	-f elf64
-LD			=	ld
-LDFLAGS		=
 CC			=	clang
-CCFLAGS		=	-Wall -Werror -Wextra -v
+CCFLAGS		=	-Wall -Werror -Wextra -O3
 CCLINKS		=	-L -lasm
 CCSRCS		=	main.c
+CCHEADS		=	header.h
+CCOBJS		=	$(CCSRCS:.c=.o)
 
-all:		$(NAME)
-	$(CC) $(CCFLAGS) $(CCLINKS) $(CCSRCS) -o a.out
+all:		proof
 
-$(NAME):	$(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o $(NAME).a
+$(NAME):	$(ASMOBJS)
+	ar rc $(NAME) $(ASMOBJS)
 
-$(OBJS):
-	$(NASM) $(NASMFLAGS) $(SRCS)
+$(ASMOBJS):	$(ASMSRCS)
+	$(NASM) $(NASMFLAGS) $(ASMSRCS)
 
 clean:
-	find . -name *.o -exec rm {} \; 
+	find . -name '*.o' -exec rm {} \; 
+	find . -name '*.gch' -exec rm {} \; 
 
 fclean:		clean
 	rm -f $(NAME).a
@@ -28,7 +41,12 @@ fclean:		clean
 
 re:			fclean all
 
+$(CCOBJS):	$(CCSRCS)
+	$(CC) $(CCFLAGS) -o $(CCOBJS) -c $(CCSRCS)
+
+proof:		$(NAME) $(CCOBJS) $(CCHEADS)
+	$(CC) $(CCFLAGS) -o $(PROOF_NAME) $(CCOBJS) $(CCLINKS)
+
 t:			test
-test:		re
-	./$(NAME).a
-	./a.out
+test:		re proof
+	./$(PROOF_NAME)

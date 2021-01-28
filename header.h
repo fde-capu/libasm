@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/01/28 16:15:10 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/01/28 16:15:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#ifndef HEADER_H
+# define HEADER_H
 
-int	main(void)
-{
-	hello_world();
-	return (0);
-}
+extern void hello_world();
+
+#endif
