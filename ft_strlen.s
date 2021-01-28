@@ -1,8 +1,7 @@
-global	hello_world
-
 section	.text
+	global	hello_world
 
-fde_capu:
+hello_world:
 	mov	rax, 1
 	mov	rdi, 1
 	mov	rsi, msg_hl

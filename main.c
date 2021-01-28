@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-extern void	fde_capu(void);
+extern void	hello_world(void);
 
 int	main(void)
 {
-	fde_capu();
+	hello_world();
 	return (0);
 }
