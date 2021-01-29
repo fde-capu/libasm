@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/01/28 16:15:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/01/28 23:13:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+extern void hello_world();
 	hello_world();
 	return (0);
 }

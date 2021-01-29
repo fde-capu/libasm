@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/01/28 16:05:40 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/01/28 23:33:04 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ ASMOBJS		=	$(ASMSRCS:.s=.o)
 NASM		=	nasm
 NASMFLAGS	=	-f elf64
 CC			=	clang
-CCFLAGS		=	-Wall -Werror -Wextra -O3
-CCLINKS		=	-L -lasm
+CCFLAGS		=	-Wall -Werror -Wextra -O0 -g
+CCLINKS		=	$(NAME)
 CCSRCS		=	main.c
 CCHEADS		=	header.h
 CCOBJS		=	$(CCSRCS:.c=.o)
@@ -26,7 +26,7 @@ CCOBJS		=	$(CCSRCS:.c=.o)
 all:		proof
 
 $(NAME):	$(ASMOBJS)
-	ar rc $(NAME) $(ASMOBJS)
+	ar rcs $(NAME) $(ASMOBJS)
 
 $(ASMOBJS):	$(ASMSRCS)
 	$(NASM) $(NASMFLAGS) $(ASMSRCS)
@@ -45,7 +45,7 @@ $(CCOBJS):	$(CCSRCS)
 	$(CC) $(CCFLAGS) -o $(CCOBJS) -c $(CCSRCS)
 
 proof:		$(NAME) $(CCOBJS) $(CCHEADS)
-	$(CC) $(CCFLAGS) -o $(PROOF_NAME) $(CCOBJS) $(CCLINKS)
+	$(CC) $(CCFLAGS) $(CCOBJS) -o $(PROOF_NAME) $(CCLINKS)
 
 t:			test
 test:		re proof

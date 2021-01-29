@@ -13,7 +13,5 @@ hello_world:
 	syscall
 
 section	.rodata
-	msg_hl:	db		'Hello World!', 10
+	msg_hl:	db		'libasm by fde-capu', 10
 	msglen_hl: equ $ - msg_hl
-	msg_hi:	db		'libasm by fde-capu', 10
-	msglen_hi: equ $ - msg_hi
