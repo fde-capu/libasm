@@ -6,12 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/01/28 23:13:45 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/01/28 23:45:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
+extern void hello();
 
 #endif

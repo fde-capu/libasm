@@ -6,13 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/01/28 23:33:04 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/01/28 23:44:29 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libasm.a
 PROOF_NAME	=	proof.out
-ASMSRCS		=	ft_strlen.s
+ASMSRCS		=	hello.s
 ASMOBJS		=	$(ASMSRCS:.s=.o)
 NASM		=	nasm
 NASMFLAGS	=	-f elf64
@@ -32,12 +32,13 @@ $(ASMOBJS):	$(ASMSRCS)
 	$(NASM) $(NASMFLAGS) $(ASMSRCS)
 
 clean:
-	find . -name '*.o' -exec rm {} \; 
-	find . -name '*.gch' -exec rm {} \; 
+	rm -f $(ASMOBJS)
+	rm -f $(CCOBJS)
+#	find . -name '*.o' -exec rm {} \; 
 
 fclean:		clean
-	rm -f $(NAME).a
-	rm -f a.out
+	rm -f $(NAME)
+	rm -f $(PROOF_NAME)
 
 re:			fclean all
 
