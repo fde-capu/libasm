@@ -6,13 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/01/28 23:44:29 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/01/29 00:27:08 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libasm.a
 PROOF_NAME	=	proof.out
-ASMSRCS		=	hello.s
+ASMSRCS		=	hello.s ft_write.s
 ASMOBJS		=	$(ASMSRCS:.s=.o)
 NASM		=	nasm
 NASMFLAGS	=	-f elf64
@@ -28,8 +28,8 @@ all:		proof
 $(NAME):	$(ASMOBJS)
 	ar rcs $(NAME) $(ASMOBJS)
 
-$(ASMOBJS):	$(ASMSRCS)
-	$(NASM) $(NASMFLAGS) $(ASMSRCS)
+$(ASMOBJS):	%.o : %.s
+	$(NASM) $(NASMFLAGS) $<
 
 clean:
 	rm -f $(ASMOBJS)
@@ -42,8 +42,8 @@ fclean:		clean
 
 re:			fclean all
 
-$(CCOBJS):	$(CCSRCS)
-	$(CC) $(CCFLAGS) -o $(CCOBJS) -c $(CCSRCS)
+$(CCOBJS):	%.o : %.c
+	$(CC) $(CCFLAGS) -o $@ -c $<
 
 proof:		$(NAME) $(CCOBJS) $(CCHEADS)
 	$(CC) $(CCFLAGS) $(CCOBJS) -o $(PROOF_NAME) $(CCLINKS)

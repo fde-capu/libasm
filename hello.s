@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 23:44:58 by fde-capu          #+#    #+#              #
-#    Updated: 2021/01/28 23:45:36 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/01/29 15:30:39 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,7 @@ hello:
 	mov	rsi, msg_hl
 	mov rdx, msglen_hl
 	syscall
-
-	mov	rax, 60
-	mov	rdi, 0
-	syscall
+	ret
 
 section	.rodata
 	msg_hl:		db		'libasm by fde-capu', 10
