@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/01/29 16:19:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/01 10:21:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 
 extern void		hello(void);
 extern ssize_t	ft_write(int fd, const void *buf, size_t count);
+extern void		t_write(int fd, const void *buf, size_t count);
 
 #endif

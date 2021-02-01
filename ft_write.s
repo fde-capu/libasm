@@ -6,21 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 23:46:52 by fde-capu          #+#    #+#              #
-#    Updated: 2021/01/29 17:07:23 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/01 10:19:28 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-section	.data
-	txt:	db	'XXX'
 
 section .text
 	global	ft_write
 
 ft_write:
 	mov	rax, 1
-	mov	rdi, 1
-	mov rsi, txt
-	mov rdx, 3
 	syscall
-	mov	rax, 42
+	mov	rax, rdx
 	ret
