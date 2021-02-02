@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 13:10:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/02/02 15:34:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,11 @@ void	test_strcmp(void)
 void	test_read(void)
 {
 	void	*buf;
-	void	*h;
 
 	buf = calloc(sizeof(char) * 6, 1);
-	h = buf;
-	t_read(0, h, 1);
+	t_read(0, buf, 3);
 	free (buf);
+	t_read(0, buf, 3);
 	return ;
 }
 
