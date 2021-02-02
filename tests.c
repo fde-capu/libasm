@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 15:37:26 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:02:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	flush_stdin(void)
 	return ;
 }
 
-void	t_read(int fd, void *buf, size_t count)
+void	t_read(int fd, void *buf, size_t count, const char *description)
 {
 	void	*a;
 	void	*b;
@@ -78,6 +78,7 @@ void	t_read(int fd, void *buf, size_t count)
 	errno = 0;
 	a = buf;
 	b = buf;
+	printf("%s:\n", description);
 	printf("   read(): from %d, read %zu bytes: ", fd, count);
 	fflush(stdout);
 	printf (" >>> return: %ld, errno: %d\n", read(fd, a, count), errno);
@@ -88,5 +89,11 @@ void	t_read(int fd, void *buf, size_t count)
 	printf (" >>> return: %ld, errno: %d\n", ft_read(fd, b, count), errno);
 	fflush(stdout);
 	flush_stdin();
+	return ;
+}
+
+void	t_strdup(char *s)
+{
+	(void)s;
 	return ;
 }
