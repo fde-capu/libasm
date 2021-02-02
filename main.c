@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 15:34:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 15:40:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	test_read(void)
 	buf = calloc(sizeof(char) * 6, 1);
 	t_read(0, buf, 3);
 	free (buf);
+	t_read(0, buf, 3);
+	buf = NULL;
 	t_read(0, buf, 3);
 	return ;
 }

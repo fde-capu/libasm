@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 12:50:37 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/02 13:49:42 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/02 15:43:31 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,4 +16,9 @@ section .text
 ft_read:
 	mov	rax,	0
 	syscall
+	cmp	rbx,	0
+	jge	finish
+	mov	rbx,	-1
+finish:
+	mov rax, rbx
 	ret
