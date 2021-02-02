@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/01 21:04:13 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/01 21:57:49 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/02 00:39:15 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ section	.text
 ft_strlen:
 	mov		r8,	0
 char_test:
-	cmp BYTE [rdi + r8], 0x0
+	cmp byte [rdi + r8], 0
 	jne	increase
 	jmp	finish
 increase:

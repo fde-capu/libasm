@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/01 22:21:35 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 00:12:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,20 @@ void	test_strcpy(void)
 	return ;
 }
 
+void	test_strcmp(void)
+{
+	t_strcmp("ABC", "ABC");
+	t_strcmp("ABCD", "ABXD");
+	t_strcmp("alhos", "bugalhos");
+	return ;
+}
+
 int		main(void)
 {
 	hello();
 	test_write();
 	test_strlen();
 	test_strcpy();
+	test_strcmp();
 	return (0);
 }

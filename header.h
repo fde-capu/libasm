@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/01 23:05:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 00:08:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ void			test_strlen(void);
 extern char		*ft_strcpy(char *dest, const char *src);
 void			t_strcpy(char *src);
 void			test_strcpy(void);
+extern int		ft_strcmp(const char *s1, const char *s2);
+void			t_strcmp(char *s1, char *s2);
+void			test_strcmp(void);
 
 #endif

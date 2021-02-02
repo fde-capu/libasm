@@ -1,29 +1,36 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_strcpy.s                                        :+:      :+:    :+:    #
+#    ft_strcmp.s                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/01 22:12:04 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/02 00:39:22 by fde-capu         ###   ########.fr        #
+#    Created: 2021/02/02 00:07:27 by fde-capu          #+#    #+#              #
+#    Updated: 2021/02/02 11:28:47 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 section	.text
-	global	ft_strcpy
+	global	ft_strcmp
 
-ft_strcpy:
-	mov	r8, 0
+ft_strcmp:
+	mov		r8,					0
 char_test:
-	cmp byte [rsi + r8], 0
-	jne	copy_byte
-	jmp	finish
-copy_byte:
-	mov	al, byte [rsi + r8]
-	mov	byte [rdi + r8], al
-	inc	r8
-	jmp	char_test
+	cmp		byte [rdi + r8],	0
+	je		end_of_str
+	cmp 	byte [rsi + r8],	0
+	je		end_of_str
+	mov		al,					byte [rdi + r8]
+	mov		bl,					byte [rsi + r8]
+	cmp		al,					bl
+	je		increase
+	jmp		finish
+increase:
+	inc		r8
+	jmp		char_test
 finish:
-	mov	rax, rdi
+	sub		rax, rbx
+	ret
+end_of_str:
+	mov		rax,				0
 	ret
