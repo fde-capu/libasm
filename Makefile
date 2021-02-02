@@ -6,13 +6,14 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/02 00:04:10 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/02 12:55:06 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libasm.a
 PROOF_NAME	=	proof.out
-ASMSRCS		=	hello.s ft_write.s ft_strlen.s ft_strcpy.s ft_strcmp.s
+ASMSRCS		=	hello.s ft_write.s ft_strlen.s ft_strcpy.s ft_strcmp.s \
+				ft_read.s
 ASMOBJS		=	$(ASMSRCS:.s=.o)
 NASM		=	nasm
 NASMFLAGS	=	-f elf64

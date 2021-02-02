@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 00:12:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 13:10:27 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ void	test_strcmp(void)
 	return ;
 }
 
+void	test_read(void)
+{
+	void	*buf;
+	void	*h;
+
+	buf = calloc(sizeof(char) * 6, 1);
+	h = buf;
+	t_read(0, h, 1);
+	free (buf);
+	return ;
+}
+
 int		main(void)
 {
 	hello();
@@ -61,5 +73,6 @@ int		main(void)
 	test_strlen();
 	test_strcpy();
 	test_strcmp();
+	test_read();
 	return (0);
 }

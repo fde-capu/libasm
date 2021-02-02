@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 00:13:24 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 13:10:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,13 @@ void	t_strcmp(char *s1, char *s2)
 	fflush(stdout);
 	printf("%s | %s | %d | ft_strcmp\n", s1, s2, ft_strcmp(s1, s2));
 	fflush(stdout);
+	return ;
+}
+
+void	t_read(int fd, void *buf, size_t count)
+{
+	(void)fd;
+	(void)buf;
+	(void)count;
 	return ;
 }
