@@ -6,13 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/01 21:15:31 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/01 23:05:44 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libasm.a
 PROOF_NAME	=	proof.out
-ASMSRCS		=	hello.s ft_write.s ft_strlen.s
+ASMSRCS		=	hello.s ft_write.s ft_strlen.s ft_strcpy.s
 ASMOBJS		=	$(ASMSRCS:.s=.o)
 NASM		=	nasm
 NASMFLAGS	=	-f elf64
@@ -34,7 +34,6 @@ $(ASMOBJS):	%.o : %.s
 clean:
 	rm -f $(ASMOBJS)
 	rm -f $(CCOBJS)
-#	find . -name '*.o' -exec rm {} \; 
 
 fclean:		clean
 	rm -f $(NAME)
@@ -42,10 +41,10 @@ fclean:		clean
 
 re:			fclean all
 
-$(CCOBJS):	%.o : %.c
+$(CCOBJS):	%.o : %.c $(CCHEADS)
 	$(CC) $(CCFLAGS) -o $@ -c $<
 
-proof:		$(NAME) $(CCOBJS) $(CCHEADS)
+proof:		$(NAME) $(CCOBJS)
 	$(CC) $(CCFLAGS) $(CCOBJS) -o $(PROOF_NAME) $(CCLINKS)
 
 t:			test

@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/01 21:15:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/01 22:21:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,19 @@ void	test_strlen(void)
 	return ;
 }
 
+void	test_strcpy(void)
+{
+	t_strcpy("Flávio");
+	t_strcpy("Carrara");
+	t_strcpy("De Capua");
+	return ;
+}
+
 int		main(void)
 {
 	hello();
 	test_write();
 	test_strlen();
+	test_strcpy();
 	return (0);
 }
