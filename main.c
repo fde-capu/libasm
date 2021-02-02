@@ -6,22 +6,13 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 20:32:11 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/01 10:28:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/01 21:15:17 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	t_write(int fd, const void *buf, size_t count)
-{
-	printf(" ::    write: %ld\n", write(fd, buf, count));
-	fflush(stdout);
-	printf(" :: ft_write: %ld\n", ft_write(fd, buf, count));
-	fflush(stdout);
-	return ;
-}
-
-void	teste_write(void)
+void	test_write(void)
 {
 	t_write(0, "WTF", 2);
 	t_write(0, "WTF", 3);
@@ -36,10 +27,21 @@ void	teste_write(void)
 	t_write(1, "WTF", -1);
 	t_write(1, "WTF", -2);
 	t_write(1, "WTF", -4);
+	return ;
 }
 
-int	main(void)
+void	test_strlen(void)
+{
+	t_strlen("Flávio");
+	t_strlen("Carrara");
+	t_strlen("De Capua");
+	return ;
+}
+
+int		main(void)
 {
 	hello();
+	test_write();
+	test_strlen();
 	return (0);
 }
