@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 16:03:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:12:59 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	test_strcpy(void)
 {
 	t_strcpy("Flávio");
 	t_strcpy("Carrara");
-	t_strcpy("De Capua");
+	t_strcpy("De\0Capua");
 	return ;
 }
 
@@ -75,10 +75,10 @@ void	test_strdup(void)
 int		main(void)
 {
 	hello();
-	test_write();
-	test_strlen();
+//	test_write();
+//	test_strlen();
 	test_strcpy();
-	test_strcmp();
-	test_read();
+//	test_strcmp();
+//	test_read();
 	return (0);
 }
