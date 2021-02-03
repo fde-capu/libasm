@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/03 02:34:28 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/03 12:29:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 void	test_write(void)
 {
+	int	fd;
+	int	fd2;
+
+	fd = open("write_out_test-fd.txt", O_CREAT | O_WRONLY);
+	fd2 = open("write_out_test-fd2.txt", O_CREAT | O_WRONLY);
+	write(fd, "fd test", 8);
+	ft_write(fd2, "fd2 = ft_write", 15);
+	close(fd);
+	close(fd2);
 	t_write(0, "WTF", 2);
 	t_write(0, "WTF", 3);
 	t_write(0, "WTF", 4);
