@@ -6,37 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/02 17:12:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/03 02:31:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void	test_write(void)
-{
-	t_write(0, "WTF", 2);
-	t_write(0, "WTF", 3);
-	t_write(0, "WTF", 4);
-	t_write(1, "WTF", 2);
-	t_write(1, "WTF", 3);
-	t_write(1, "WTF", 4);
-	t_write(2, "WTF", 2);
-	t_write(2, "WTF", 3);
-	t_write(2, "WTF", 4);
-	t_write(1, "WTF", 0);
-	t_write(1, "WTF", -1);
-	t_write(1, "WTF", -2);
-	t_write(1, "WTF", -4);
-	return ;
-}
-
-void	test_strlen(void)
-{
-	t_strlen("Flávio");
-	t_strlen("Carrara");
-	t_strlen("De Capua");
-	return ;
-}
 
 void	test_strcpy(void)
 {
@@ -72,13 +46,13 @@ void	test_strdup(void)
 	return ;
 }
 
-int		main(void)
+int	main(void)
 {
 	hello();
-//	test_write();
-//	test_strlen();
+	test_write();
+	test_strlen();
 	test_strcpy();
-//	test_strcmp();
-//	test_read();
+	test_strcmp();
+	test_read();
 	return (0);
 }
