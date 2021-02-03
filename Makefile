@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/03 13:25:02 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/03 15:31:56 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ CCHEADS		=	header.h
 CCOBJS		=	$(CCSRCS:.c=.o)
 
 all:		proof
+
+library:	$(NAME)
 
 $(NAME):	$(ASMOBJS)
 	ar rcs $(NAME) $(ASMOBJS)
