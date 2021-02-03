@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/03 02:34:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/03 02:52:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	t_read(int fd, void *buf, size_t count, const char *description)
 	printf("%s:\n", description);
 	printf("   read(): from %d, read %zu bytes: ", fd, count);
 	fflush(stdout);
-	printf (" >>> return: %ld, errno: %d\n", read(fd, a, count), errno);
+	printf(" >>> return: %ld, errno: %d\n", read(fd, a, count), errno);
 	fflush(stdout);
 	flush_stdin();
 	printf("ft_read(): from %d, read %zu bytes: ", fd, count);
 	fflush(stdout);
-	printf (" >>> return: %ld, errno: %d\n", ft_read(fd, b, count), errno);
+	printf(" >>> return: %ld, errno: %d\n", ft_read(fd, b, count), errno);
 	fflush(stdout);
 	flush_stdin();
 	return ;

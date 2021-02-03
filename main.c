@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/03 02:31:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/03 02:52:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	test_read(void)
 	void	*buf;
 
 	buf = calloc(sizeof(char) * 6, 1);
-//	t_read(0, buf, 3, "allocated");
-	free (buf);
-//	t_read(0, buf, 3, "freed (same buf)");
+	t_read(0, buf, 3, "allocated");
+	free(buf);
+	t_read(0, buf, 3, "freed (same buf)");
 	buf = NULL;
 	t_read(0, buf, 3, "buf = NULL");
 	return ;
@@ -46,7 +46,7 @@ void	test_strdup(void)
 	return ;
 }
 
-int	main(void)
+int		main(void)
 {
 	hello();
 	test_write();
