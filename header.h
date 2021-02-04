@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/03 12:21:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 12:57:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-extern void		hello(void);
+void			err(void);
+void			nl(void);
+void			ok(void);
 extern ssize_t	ft_write(int fd, const void *buf, size_t count);
 void			t_write(int fd, const void *buf, size_t count);
 void			test_write(void);

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/03 02:52:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 13:51:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,10 @@ void	test_strdup(void)
 
 int		main(void)
 {
-	hello();
 	test_write();
 	test_strlen();
-	test_strcpy();
-	test_strcmp();
-	test_read();
+//	test_strcpy();
+//	test_strcmp();
+//	test_read();
 	return (0);
 }

@@ -6,13 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 23:46:52 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/03 14:00:02 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/04 14:13:09 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 section .text
 	global	ft_write
-	extern	error
+	extern	__errno_location
 
 ft_write:
 	mov	rax, 1
@@ -21,8 +21,9 @@ ft_write:
 	mov	rax, rdx
 	ret
 write_failure:
+	neg	rax
 	mov	r9, rax
-	call error wrt ..plt
+	call	__errno_location
 	mov [rax], r9
-	mov rax, r9
+	mov	rax, -1
 	ret

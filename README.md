@@ -26,10 +26,19 @@ In a hurry, so messy README.md.
 
 ### To-do:
 
-[ ] Set errno on all.
 [ ] Exhaustive tests.
-[ ] Test on VM.
 [ ] Norme.
+
+#### Notes:
+
+	| 63 - 32 | 31 - 16 | 15 - 8 | 7 - 0 |
+	======================================
+	.         .         | AH     | AL    |
+	.         .         | AX             |
+	.         | EAX                      |
+	| RAX                                |
+	======================================
+	| 63 - 32 | 31 - 16 | 15 - 8 | 7 - 0 |
 
 ---
 

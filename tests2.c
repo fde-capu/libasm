@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/03 12:29:21 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 02:10:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	test_write(void)
 	int	fd;
 	int	fd2;
 
+	printf("\n\nft_write() segfault tests:\n");
+	t_write(-1, "test", 5);
+	return ;
 	fd = open("write_out_test-fd.txt", O_CREAT | O_WRONLY);
 	fd2 = open("write_out_test-fd2.txt", O_CREAT | O_WRONLY);
 	write(fd, "fd test", 8);
@@ -44,16 +47,6 @@ void	test_strlen(void)
 	t_strlen("Flávio");
 	t_strlen("Carrara");
 	t_strlen("De Capua");
-	return ;
-}
-
-void	t_write(int fd, const void *buf, size_t count)
-{
-	errno = 0;
-	printf(" ::    write: %ld, %d\n", write(fd, buf, count), errno);
-	fflush(stdout);
-	printf(" :: ft_write: %ld, %d\n", ft_write(fd, buf, count), errno);
-	fflush(stdout);
 	return ;
 }
 
