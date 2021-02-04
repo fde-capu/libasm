@@ -6,12 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 12:50:37 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/03 00:47:59 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/04 00:40:12 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 section .text
 	global		ft_read
+	extern	error
 
 ft_read:
 	cmp	rsi, 0
@@ -27,5 +28,8 @@ finish:
 	mov	rax, rdx
 	ret
 except:
-	mov	rax, -1
+	mov	r9, rax
+	call error wrt ..plt
+	mov [rax], r9
+	mov rax, r9
 	ret

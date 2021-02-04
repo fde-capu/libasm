@@ -26,7 +26,6 @@ In a hurry, so messy README.md.
 
 ### To-do:
 
-[ ] Calling convention on all.
 [ ] Set errno on all.
 [ ] Exhaustive tests.
 [ ] Test on VM.
