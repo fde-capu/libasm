@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 00:07:27 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/02 23:06:48 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/03 22:44:50 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ section	.text
 ft_strcmp:
 	mov		r8, 0
 	mov		rax, 0
+	push	rbx
 	mov		rbx, 0
 char_test:
 	mov		al, byte [rdi + r8]
@@ -32,4 +33,5 @@ increase:
 	jmp		char_test
 finish:
 	sub		rax, rbx
+	pop		rbx
 	ret
