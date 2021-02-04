@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 02:32:41 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 14:22:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 14:26:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	err(void)
 {
-	printf("\x1b[35m[X]\x1b[0m");
+	printf("\x1b[35m[KO]\x1b[0m");
 }
 
 void	nl(void)
@@ -24,5 +24,5 @@ void	nl(void)
 
 void	ok(void)
 {
-	printf("\x1b[34m[v]\x1b[0m");
+	printf("\x1b[34m[OK]\x1b[0m");
 }

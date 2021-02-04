@@ -6,18 +6,49 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 14:23:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 15:11:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	t_write_file(const void *buf, size_t count)
+{
+	int	fd;
+	int	expect[2];
+	int error_[2];
+
+	printf("ft_write(fd, \"%s\", %lu);\t", buf, count);
+	fd = remove("_test.txt");
+	fd = open("_test.txt", O_CREAT | O_WRONLY, 0666);
+	errno = 0;
+	expect[0] = write(fd, buf, count);
+	error_[0] = errno;
+	close(fd);
+	fd = remove("_test.txt");
+	fd = open("_test.txt", O_CREAT | O_WRONLY, 0666);
+	errno = 0;
+	expect[1] = ft_write(fd, buf, count);
+	error_[1] = errno;
+	close(fd);
+	printf("return\t%d:%d \t| error\t%d:%d\t", \
+		expect[0], expect[1], error_[0], error_[1]);
+	if ((expect[0] != expect[1]) || (error_[0] != error_[1]))
+		err();
+	else
+		ok();
+	nl();
+	fflush(stdout);
+	fd = remove("_test.txt");
+	return ;
+}
 
 void	t_write(int fd, const void *buf, size_t count)
 {
 	int	expect[2];
 	int error_[2];
 
-	printf("ft_write(%d, '%s', %lu);\t", fd, buf, count);
+	printf("ft_write(%d, \"%s\", %lu);\t", fd, buf, count);
 	errno = 0;
 	expect[0] = write(fd, buf, count);
 	error_[0] = errno;

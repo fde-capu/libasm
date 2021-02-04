@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 23:46:52 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/04 14:13:09 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/04 15:32:02 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ section .text
 ft_write:
 	mov	rax, 1
 	syscall
-	jc	write_failure
+	cmp	rax, 0
+	jl	write_failure
 	mov	rax, rdx
 	ret
 write_failure:

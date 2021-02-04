@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 02:10:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 15:05:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,33 @@
 void	test_write(void)
 {
 	int	fd;
-	int	fd2;
 
 	printf("\n\nft_write() segfault tests:\n");
 	t_write(-1, "test", 5);
-	return ;
-	fd = open("write_out_test-fd.txt", O_CREAT | O_WRONLY);
-	fd2 = open("write_out_test-fd2.txt", O_CREAT | O_WRONLY);
-	write(fd, "fd test", 8);
-	ft_write(fd2, "fd2 = ft_write", 15);
-	close(fd);
-	close(fd2);
-	t_write(0, "WTF", 2);
-	t_write(0, "WTF", 3);
-	t_write(0, "WTF", 4);
-	t_write(1, "WTF", 2);
-	t_write(1, "WTF", 3);
-	t_write(1, "WTF", 4);
-	t_write(2, "WTF", 2);
-	t_write(2, "WTF", 3);
-	t_write(2, "WTF", 4);
-	t_write(1, "WTF", 0);
-	t_write(1, "WTF", -1);
-	t_write(1, "WTF", -2);
-	t_write(1, "WTF", -4);
+	close(5);
+	fd = -2;
+	t_write(fd, NULL, 8);
+	t_write(fd, "test", 0);
+	t_write(fd, "test", 5);
+	t_write(fd, "t", 1);
+	t_write(fd, "", 0);
+	t_write(fd, "test", 4);
+	t_write(fd, "test", 2);
+	t_write(fd, NULL, 2);
+	t_write(-1, "tt", 2);
+	t_write(_POSIX_OPEN_MAX + 1, "tt", 2);
+	t_write_file("", 0);
+	t_write_file("test", 4);
+	t_write_file("1234567890", 10);
+	t_write_file("#c#s#p#x#X#e#f#g", 16);
+	t_write_file("something\0hidden", 16);
+	t_write_file(LONG_STRING, strlen(LONG_STRING));
+	t_write(STDOUT_FILENO, NULL, 3);
+	t_write(-1, "bom dia", 7);
+	t_write(42, "bom dia", 7);
+	t_write(9809, "bom dia", 7);
+	t_write(98123, "", 1);
+	t_write(42, NULL, 7);
 	return ;
 }
 
