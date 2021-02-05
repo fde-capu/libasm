@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 22:31:45 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/05 01:11:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	t_strcpy(char *src)
 	errno = 0;
 	ft_strcpy(dest_b, src);
 	error_[1] = errno;
+	printf("\n\"%s\":\"%s\"\n", dest_a, dest_b);
 	expect[0] = strcmp(dest_a, src);
 	expect[1] = strcmp(dest_b, src);
 	free(dest_a);
@@ -166,6 +167,7 @@ void	t_strdup(char *s)
 	errno = 0;
 	dup_b = ft_strdup(s);
 	error_[1] = errno;
+	printf("\n\"%s\":\"%s\"\n", dup_a, dup_b);
 	expect[0] = strcmp(dup_a, s);
 	expect[1] = strcmp(dup_b, s);
 	ko_ok(expect, error_);

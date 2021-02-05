@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 22:42:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/05 01:11:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int		main(void)
 //	nl();
 //	test_strlen();
 //	nl();
-//	test_strcpy();
-//	nl();
+	test_strcpy();
+	nl();
 //	test_strcmp();
 //	nl();
 	test_strdup();

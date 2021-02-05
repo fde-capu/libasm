@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 15:59:34 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/04 00:17:42 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/05 02:29:00 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,14 @@ section	.text
 	extern	error
 
 ft_strdup:
+	push	rdi
 	call ft_strlen
-	mov rsi, rdi
 	mov	rdi, rax
+	inc	rax
 	call malloc wrt ..plt
-	cmp	rax, 0
-	jl	malloc_error
+	jc	malloc_error
+	pop	rdi
+	mov rsi, rdi
 	mov	rdi, rax
 	call ft_strcpy
 	ret
