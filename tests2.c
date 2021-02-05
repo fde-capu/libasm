@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 15:05:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 17:01:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	test_write(void)
 {
 	int	fd;
 
-	printf("\n\nft_write() segfault tests:\n");
 	t_write(-1, "test", 5);
 	close(5);
 	fd = -2;
@@ -47,18 +46,71 @@ void	test_write(void)
 
 void	test_strlen(void)
 {
-	t_strlen("Flávio");
-	t_strlen("Carrara");
-	t_strlen("De Capua");
+	t_strlen("");
+	t_strlen("42 São Paulo");
+	t_strlen("fde-capu");
+	t_strlen("asdfasdf''///##!!@");
+	t_strlen("the\0hidden");
+	t_strlen(LONG_STRING);
 	return ;
 }
 
 void	t_strlen(const char *s)
 {
+	int	expect[2];
+	int error_[2];
+
+	printf("ft_strlen(\"%s\");\t", s);
+	fflush(stdout);
 	errno = 0;
-	printf("%s >%lu< errno(%d) strlen\n", s, strlen(s), errno);
-	fflush(stdout);
-	printf("%s >%lu< errno(%d) ft_strlen\n", s, ft_strlen(s), errno);
-	fflush(stdout);
+	expect[0] = strlen(s);
+	error_[0] = errno;
+	errno = 0;
+	expect[1] = strlen(s);
+	error_[1] = errno;
+	ko_ok(expect, error_);
+	return ;
+}
+
+void	test_strcpy(void)
+{
+	t_strcpy_segfault("");
+	t_strcpy_segfault("abc");
+	t_strcpy_segfault("123456781235467812345634");
+	t_strcpy_segfault("nullchar->\0can't read me");
+	t_strcpy_segfault(LONG_STRING);
+	t_strcpy("");
+	t_strcpy("abc");
+	t_strcpy("fs;fseluf;s;fs#Ç#li;slefyi;");
+	t_strcpy("nullchar->\0can't read me");
+	t_strcpy(LONG_STRING);
+	t_strcpy("\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f");
+	t_strcpy("\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f");
+	return ;
+}
+
+void	test_strcmp(void)
+{
+	t_strcmp("ABC", "ABC");
+	t_strcmp("ABCD", "ABXD");
+	t_strcmp("alhos", "bugalhos");
+	return ;
+}
+
+void	test_strdup(void)
+{
+	return ;
+}
+
+void	test_read(void)
+{
+	void	*buf;
+
+	buf = calloc(sizeof(char) * 6, 1);
+	t_read(0, buf, 3, "allocated");
+	free(buf);
+	t_read(0, buf, 3, "freed (same buf)");
+	buf = NULL;
+	t_read(0, buf, 3, "buf = NULL");
 	return ;
 }

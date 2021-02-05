@@ -6,52 +6,37 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 13:51:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 16:25:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	test_strcpy(void)
-{
-	t_strcpy("Flávio");
-	t_strcpy("Carrara");
-	t_strcpy("De\0Capua");
-	return ;
-}
-
-void	test_strcmp(void)
-{
-	t_strcmp("ABC", "ABC");
-	t_strcmp("ABCD", "ABXD");
-	t_strcmp("alhos", "bugalhos");
-	return ;
-}
-
-void	test_read(void)
-{
-	void	*buf;
-
-	buf = calloc(sizeof(char) * 6, 1);
-	t_read(0, buf, 3, "allocated");
-	free(buf);
-	t_read(0, buf, 3, "freed (same buf)");
-	buf = NULL;
-	t_read(0, buf, 3, "buf = NULL");
-	return ;
-}
-
-void	test_strdup(void)
-{
-	return ;
-}
-
 int		main(void)
 {
+	nl();
 	test_write();
+	nl();
 	test_strlen();
-//	test_strcpy();
+	nl();
+	test_strcpy();
+	nl();
 //	test_strcmp();
+	nl();
 //	test_read();
+	nl();
 	return (0);
+}
+
+void	ko_ok(int expect[2], int error_[2])
+{
+	printf("return/result\t%d:%d \t| error\t%d:%d\t", \
+		expect[0], expect[1], error_[0], error_[1]);
+	if ((expect[0] != expect[1]) || (error_[0] != error_[1]))
+		err();
+	else
+		ok();
+	nl();
+	fflush(stdout);
+	return ;
 }

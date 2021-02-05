@@ -1,7 +1,5 @@
 # libasm
 
-In a hurry, so messy README.md.
-
 ### Subject:
 
 - Common instructions. Note that in this case the test program is also delivered. 

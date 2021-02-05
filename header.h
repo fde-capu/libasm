@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 15:02:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 16:28:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ tortor, sit amet consequat amet."
 void			err(void);
 void			nl(void);
 void			ok(void);
+void			ko_ok(int expect[2], int error_[2]);
 extern ssize_t	ft_write(int fd, const void *buf, size_t count);
 void			t_write(int fd, const void *buf, size_t count);
 void			t_write_file(const void *buf, size_t count);
@@ -43,6 +44,7 @@ void			t_strlen(const char *s);
 void			test_strlen(void);
 extern char		*ft_strcpy(char *dest, const char *src);
 void			t_strcpy(char *src);
+void			t_strcpy_segfault(char *src);
 void			test_strcpy(void);
 extern int		ft_strcmp(const char *s1, const char *s2);
 void			t_strcmp(char *s1, char *s2);

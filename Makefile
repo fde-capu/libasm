@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/04 13:46:16 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/04 17:07:50 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ CCLINKS		=	$(NAME)
 CCSRCS		=	main.c tests.c tests2.c helpers.c
 CCHEADS		=	header.h
 CCOBJS		=	$(CCSRCS:.c=.o)
-
+VALGRIND	=	valgrind --leak-check=full
+ALLLEAKS	=	--show-leak-kinds=all
 all:		proof
 
 library:	$(NAME)
@@ -46,6 +47,9 @@ re:			fclean all
 
 $(CCOBJS):	%.o : %.c $(CCHEADS)
 	$(CC) $(CCFLAGS) -o $@ -c $<
+
+v:			proof
+	$(VALGRIND) $(ALLLEAKS) ./$(PROOF_NAME)
 
 proof:		$(NAME) $(CCOBJS)
 	$(CC) $(CCFLAGS) $(CCOBJS) -o $(PROOF_NAME) $(CCLINKS)

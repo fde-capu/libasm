@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 15:11:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/04 22:01:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	t_write_file(const void *buf, size_t count)
 	int error_[2];
 
 	printf("ft_write(fd, \"%s\", %lu);\t", buf, count);
+	fflush(stdout);
 	fd = remove("_test.txt");
 	fd = open("_test.txt", O_CREAT | O_WRONLY, 0666);
 	errno = 0;
@@ -31,14 +32,7 @@ void	t_write_file(const void *buf, size_t count)
 	expect[1] = ft_write(fd, buf, count);
 	error_[1] = errno;
 	close(fd);
-	printf("return\t%d:%d \t| error\t%d:%d\t", \
-		expect[0], expect[1], error_[0], error_[1]);
-	if ((expect[0] != expect[1]) || (error_[0] != error_[1]))
-		err();
-	else
-		ok();
-	nl();
-	fflush(stdout);
+	ko_ok(expect, error_);
 	fd = remove("_test.txt");
 	return ;
 }
@@ -49,39 +43,61 @@ void	t_write(int fd, const void *buf, size_t count)
 	int error_[2];
 
 	printf("ft_write(%d, \"%s\", %lu);\t", fd, buf, count);
+	fflush(stdout);
 	errno = 0;
 	expect[0] = write(fd, buf, count);
 	error_[0] = errno;
 	errno = 0;
 	expect[1] = ft_write(fd, buf, count);
 	error_[1] = errno;
-	printf("return\t%d:%d \t| error\t%d:%d\t", \
-		expect[0], expect[1], error_[0], error_[1]);
-	if ((expect[0] != expect[1]) || (error_[0] != error_[1]))
-		err();
-	else
-		ok();
-	nl();
+	ko_ok(expect, error_);
+	return ;
+}
+
+void	t_strcpy_segfault(char *src)
+{
+	int			expect[2];
+	int			error_[2];
+	static char	dest_a[(1 << 12)] = {0};
+
+	printf("(segfault) ft_strcpy(dest, \"%s\");\t", src);
 	fflush(stdout);
+	errno = 0;
+	strcpy(dest_a, src);
+	error_[0] = errno;
+	errno = 0;
+	ft_strcpy(dest_a, src);
+	error_[1] = errno;
+	expect[0] = strcmp(dest_a, src);
+	expect[1] = strcmp(dest_a, src);
+	ko_ok(expect, error_);
 	return ;
 }
 
 void	t_strcpy(char *src)
 {
+	int		expect[2];
+	int		error_[2];
 	char	*dest_a;
 	char	*dest_b;
 	int		len;
 
-	errno = 0;
-	len = ft_strlen(src);
+	len = strlen(src);
 	dest_a = calloc(sizeof(char) * (len + 1), 1);
 	dest_b = calloc(sizeof(char) * (len + 1), 1);
-	printf("%s::errno::%d::strcpy\n", strcpy(dest_a, src), errno);
+	printf("ft_strcpy(dest, \"%s\");\t", src);
 	fflush(stdout);
-	printf("%s::errno::%d::ft_strcpy\n", ft_strcpy(dest_b, src), errno);
-	fflush(stdout);
+	errno = 0;
+	strcpy(dest_a, src);
+	error_[0] = errno;
+	errno = 0;
+	ft_strcpy(dest_b, src);
+	error_[1] = errno;
+	expect[0] = strcmp(dest_a, src);
+	expect[1] = strcmp(dest_b, src);
 	free(dest_a);
 	free(dest_b);
+	ko_ok(expect, error_);
 	return ;
 }
 
