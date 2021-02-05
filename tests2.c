@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/04 17:01:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/05 00:33:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,48 @@ void	test_strcmp(void)
 	t_strcmp("ABC", "ABC");
 	t_strcmp("ABCD", "ABXD");
 	t_strcmp("alhos", "bugalhos");
+	t_strcmp("", "");
+	t_strcmp("olá", "");
+	t_strcmp("bom dia", "");
+	t_strcmp("asdklfjasdfj////asdf'''asdf3##", "");
+	t_strcmp("the\0hidden", "");
+	t_strcmp(LONG_STRING, "");
+	t_strcmp("", "");
+	t_strcmp("olá", "olá");
+	t_strcmp("bom dia", "bom dia");
+	t_strcmp("asdklfjasdfj////asdf'''asdf3##", "asdklfjasdfj////asdf'''asdf3##");
+	t_strcmp("the\0hidden", "the\0hidden");
+	t_strcmp(LONG_STRING, LONG_STRING);
+	printf("Hidden characters inside string ahead:\n");
+	t_strcmp("\x01", "\x01");
+	t_strcmp("\x02", "\x01");
+	t_strcmp("\x01", "\x02");
+	t_strcmp("\xff", "\xff");
+	t_strcmp("\xfe", "\xff");
+	t_strcmp("\xff", "\xfe");
+	t_strcmp("\x01\x01", "\x01");
+	t_strcmp("\x01\x02", "\x01");
+	t_strcmp("\x02\x01", "\x02");
+	t_strcmp("\xff\xff", "\xff");
+	t_strcmp("\xff\xfe", "\xff");
+	t_strcmp("\xfe\xff", "\xfe");
+	t_strcmp("\x01", "\x01\x01");
+	t_strcmp("\x01", "\x01\x02");
+	t_strcmp("\x02", "\x02\x01");
+	t_strcmp("\xff", "\xff\xff");
+	t_strcmp("\xff", "\xff\xfe");
+	t_strcmp("\xfe", "\xfe\xff");
 	return ;
 }
 
 void	test_strdup(void)
 {
+	t_strdup("");
+	t_strdup("olá");
+	t_strdup("bom dia");
+	t_strdup("asdklfjasdfj////asdf'''asdf3##");
+	t_strdup("the\0hidden");
+	t_strdup(LONG_STRING);
 	return ;
 }
 
