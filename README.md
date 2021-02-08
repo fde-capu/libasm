@@ -38,6 +38,8 @@
 	======================================
 	| 63 - 32 | 31 - 16 | 15 - 8 | 7 - 0 |
 
+A 64 bit linux machine passes function parameters in rdi, rsi, rdx, rcx, r8, and r9. Any additional parameters get pushed on the stack.
+
 ---
 
 *this project is part of the 42 São Paulo cursus*

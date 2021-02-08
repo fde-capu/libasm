@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/05 00:33:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 07:44:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,15 +139,31 @@ void	test_strdup(void)
 	return ;
 }
 
+/*
+** test_read()
+** Not tested: buffer < count. Original read gives invalid pointer.
+** Not tested: buffer == count. Original read gives undefined behavior.
+*/
+
 void	test_read(void)
 {
-	void	*buf;
-
-	buf = calloc(sizeof(char) * 6, 1);
-	t_read(0, buf, 3, "allocated");
-	free(buf);
-	t_read(0, buf, 3, "freed (same buf)");
-	buf = NULL;
-	t_read(0, buf, 3, "buf = NULL");
+//	t_read(0, -1, "test_read_alice.txt");
+//	t_read(1, -1, "test_read_alice.txt");
+//	t_read(2, -1, "test_read_alice.txt");
+//	t_read(0, -2, "test_read_alice.txt");
+//	t_read(1, -2, "test_read_alice.txt");
+//	t_read(2, -2, "test_read_alice.txt");
+//	t_read(0, 0, "test_read_alice.txt");
+//	t_read(1, 0, "test_read_alice.txt");
+//	t_read(1, 0, "test_read_alice.txt");
+//	t_read(2, 0, "test_read_alice.txt");
+	t_read(2, 1, "test_read_alice.txt");
+	t_read(3, 0, "test_read_alice.txt");
+	t_read(3, 1, "test_read_alice.txt");
+	t_read(3, 2, "test_read_alice.txt");
+	t_read(20, 19, "test_read_alice.txt");
+	t_read(200, 30, "test_read_alice.txt");
+	//t_read(5, 3, "test_read_alice.txt");
+	//t_read(5, 30, "test_read_alice.txt");
 	return ;
 }

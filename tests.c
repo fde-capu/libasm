@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/05 01:11:36 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 07:44:28 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,25 +130,32 @@ void	flush_stdin(void)
 	return ;
 }
 
-void	t_read(int fd, void *buf, size_t count, const char *description)
+void	t_read(int buf_size, size_t count, char *file)
 {
-	void	*a;
-	void	*b;
+	int		expect[2];
+	int		error_[2];
+	void	*buf_a;
+	void	*buf_b;
+	int		fd;
 
+	buf_a = calloc(buf_size, 1);
+	buf_b = calloc(buf_size, 1);
+	fd = open(file, O_RDONLY | O_SYNC);
+	printf("ft_read(%d, calloc(%d, 1), %zu);\n", fd, buf_size, count);
+	fflush(stdout);
 	errno = 0;
-	a = buf;
-	b = buf;
-	printf("%s:\n", description);
-	printf("   read(): from %d, read %zu bytes: ", fd, count);
-	fflush(stdout);
-	printf(" >>> return: %ld, errno: %d\n", read(fd, a, count), errno);
-	fflush(stdout);
-	flush_stdin();
-	printf("ft_read(): from %d, read %zu bytes: ", fd, count);
-	fflush(stdout);
-	printf(" >>> return: %ld, errno: %d\n", ft_read(fd, b, count), errno);
-	fflush(stdout);
-	flush_stdin();
+	expect[0] = read(fd, buf_a, count);
+	error_[0] = errno;
+	close(fd);
+	fd = open(file, O_RDONLY | O_SYNC);
+	errno = 0;
+	expect[1] = ft_read(fd, buf_b, count);
+	error_[1] = errno;
+	close(fd);
+	ko_ok(expect, error_);
+	ko_ok_strcmp(buf_a, buf_b);
+	free(buf_a);
+	free(buf_b);
 	return ;
 }
 

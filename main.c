@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/05 01:11:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:21:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 int		main(void)
 {
+	g_error_count = 0;
+	g_success_count = 0;
 	nl();
 //	test_write();
 //	nl();
 //	test_strlen();
 //	nl();
-	test_strcpy();
-	nl();
+//	test_strcpy();
+//	nl();
 //	test_strcmp();
 //	nl();
-	test_strdup();
+//	test_strdup();
+//	nl();
+	test_read();
 	nl();
-//	test_read();
-	nl();
+	printf("\x1b[34m[OK]:\t%d\x1b[0m\t", g_success_count);
+	printf("\x1b[35m[KO]:\t%d\x1b[0m\n", g_error_count);
 	return (0);
 }
 
@@ -40,5 +44,16 @@ void	ko_ok(int expect[2], int error_[2])
 		ok();
 	nl();
 	fflush(stdout);
+	return ;
+}
+void	ko_ok_strcmp(void *buf_a, void *buf_b)
+{
+	if (strcmp(buf_a, buf_b))
+	{
+		printf("string differ: ");
+		printf(" \"%s\":\"%s\" ", buf_a, buf_b);
+		err();
+		nl();
+	}
 	return ;
 }
