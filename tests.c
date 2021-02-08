@@ -6,53 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/08 08:58:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:04:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void	t_write_file(const void *buf, size_t count)
-{
-	int	fd;
-	int	expect[2];
-	int error_[2];
-
-	printf("ft_write(fd, \"%s\", %lu);\t", buf, count);
-	fflush(stdout);
-	fd = remove("_test.txt");
-	fd = open("_test.txt", O_CREAT | O_WRONLY, 0666);
-	errno = 0;
-	expect[0] = write(fd, buf, count);
-	error_[0] = errno;
-	close(fd);
-	fd = remove("_test.txt");
-	fd = open("_test.txt", O_CREAT | O_WRONLY, 0666);
-	errno = 0;
-	expect[1] = ft_write(fd, buf, count);
-	error_[1] = errno;
-	close(fd);
-	ko_ok(expect, error_);
-	fd = remove("_test.txt");
-	return ;
-}
-
-void	t_write(int fd, const void *buf, size_t count)
-{
-	int	expect[2];
-	int error_[2];
-
-	printf("ft_write(%d, \"%s\", %lu);\t", fd, buf, count);
-	fflush(stdout);
-	errno = 0;
-	expect[0] = write(fd, buf, count);
-	error_[0] = errno;
-	errno = 0;
-	expect[1] = ft_write(fd, buf, count);
-	error_[1] = errno;
-	ko_ok(expect, error_);
-	return ;
-}
 
 void	t_strcpy_segfault(char *src)
 {
@@ -119,28 +77,15 @@ void	t_strcmp(char *s1, char *s2)
 	return ;
 }
 
-void	flush_stdin(void)
-{
-	int	c;
-
-	errno = 0;
-	c = getchar();
-	while (c != '\n' && c != EOF)
-		c = getchar();
-	return ;
-}
-
 void	t_read(int buf_size, size_t count, char *file)
 {
 	int		expect[2];
 	int		error_[2];
-	void	*buf[4];
+	void	*buf[2];
 	int		fd;
 
 	buf[0] = calloc(buf_size, 1);
 	buf[1] = calloc(buf_size, 1);
-	buf[2] = buf[0];
-	buf[3] = buf[1];
 	fd = open(file, O_RDONLY | O_SYNC);
 	printf("ft_read(\'%s\', \'calloc(%d, 1)\', %zu);\n", file, buf_size, count);
 	fflush(stdout);

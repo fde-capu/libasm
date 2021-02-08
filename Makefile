@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 14:42:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/05 16:15:01 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/08 09:08:55 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NASMFLAGS	=	-f elf64
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -O0 -g
 CCLINKS		=	$(NAME)
-CCSRCS		=	main.c tests.c tests2.c helpers.c
+CCSRCS		=	main.c tests.c tests2.c tests3.c tests4.c helpers.c
 CCHEADS		=	header.h
 CCOBJS		=	$(CCSRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full

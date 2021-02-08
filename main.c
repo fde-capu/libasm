@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/08 08:58:31 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:17:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		main(void)
 void	ko_ok(int expect[2], int error_[2])
 {
 	printf("return/result\t%d:%d \t| error\t%d:%d\t", \
-		expect[0], expect[1], error_[0], error_[1]);
+expect[0], expect[1], error_[0], error_[1]);
 	if ((expect[0] != expect[1]) || (error_[0] != error_[1]))
 		err();
 	else
@@ -46,6 +46,7 @@ void	ko_ok(int expect[2], int error_[2])
 	fflush(stdout);
 	return ;
 }
+
 void	ko_ok_strcmp(void *buf_a, void *buf_b)
 {
 	if (strcmp(buf_a, buf_b))
