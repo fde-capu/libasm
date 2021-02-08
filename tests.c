@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/08 08:33:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:44:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void	t_read(int buf_size, size_t count, char *file)
 //	sleep(1);
 	fd = open(file, O_RDONLY | O_SYNC);
 	errno = 0;
-	expect[1] = read(fd, buf[1], count);
+	expect[1] = ft_read(fd, buf[1], count);
 	error_[1] = errno;
 	close(fd);
 	ko_ok(expect, error_);
