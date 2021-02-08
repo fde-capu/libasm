@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/05 16:21:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:31:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int		main(void)
 	g_error_count = 0;
 	g_success_count = 0;
 	nl();
-//	test_write();
-//	nl();
-//	test_strlen();
-//	nl();
-//	test_strcpy();
-//	nl();
-//	test_strcmp();
-//	nl();
-//	test_strdup();
-//	nl();
+	test_write();
+	nl();
+	test_strlen();
+	nl();
+	test_strcpy();
+	nl();
+	test_strcmp();
+	nl();
+	test_strdup();
+	nl();
 	test_read();
 	nl();
 	printf("\x1b[34m[OK]:\t%d\x1b[0m\t", g_success_count);

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 15:14:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/05 15:42:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:41:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void			test_strcmp(void);
 extern ssize_t	ft_read(int fd, void *buf, size_t count);
 void			t_read(int buf_size, size_t count, char *file);
 void			test_read(void);
+void			t_read_battery(int buf_size, char *fn, int except);
+void			t_read_buf_size(int buf_size);
 extern char		*ft_strdup(const char *s);
 void			t_strdup(char *s);
 void			test_strdup(void);

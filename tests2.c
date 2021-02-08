@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/08 07:44:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:42:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,23 +147,60 @@ void	test_strdup(void)
 
 void	test_read(void)
 {
-//	t_read(0, -1, "test_read_alice.txt");
-//	t_read(1, -1, "test_read_alice.txt");
-//	t_read(2, -1, "test_read_alice.txt");
-//	t_read(0, -2, "test_read_alice.txt");
-//	t_read(1, -2, "test_read_alice.txt");
-//	t_read(2, -2, "test_read_alice.txt");
-//	t_read(0, 0, "test_read_alice.txt");
-//	t_read(1, 0, "test_read_alice.txt");
-//	t_read(1, 0, "test_read_alice.txt");
-//	t_read(2, 0, "test_read_alice.txt");
-	t_read(2, 1, "test_read_alice.txt");
-	t_read(3, 0, "test_read_alice.txt");
-	t_read(3, 1, "test_read_alice.txt");
-	t_read(3, 2, "test_read_alice.txt");
-	t_read(20, 19, "test_read_alice.txt");
-	t_read(200, 30, "test_read_alice.txt");
-	//t_read(5, 3, "test_read_alice.txt");
-	//t_read(5, 30, "test_read_alice.txt");
+	t_read_buf_size(0);
+	t_read_buf_size(1);
+	t_read_buf_size(2);
+	t_read_buf_size(10);
+	t_read_buf_size(15);
+	t_read_buf_size(16);
+	t_read_buf_size(17);
+	t_read_buf_size(63);
+	t_read_buf_size(64);
+	t_read_buf_size(65);
+	t_read_buf_size(1023);
+	t_read_buf_size(1024);
+	t_read_buf_size(1025);
+	t_read_buf_size(999999999);
 	return ;
+}
+
+void	t_read_buf_size(int buf_size)
+{
+	t_read_battery(buf_size, "test_read_0.txt", 0);
+	t_read_battery(buf_size, "test_read_1.txt", 0);
+	t_read_battery(buf_size, "test_read_3.txt", 0);
+	t_read_battery(buf_size, "test_read_15.txt", 0);
+	t_read_battery(buf_size, "test_read_16.txt", 0);
+	t_read_battery(buf_size, "test_read_17.txt", 0);
+	t_read_battery(buf_size, "test_read_alice.txt", 1);
+	t_read_battery(buf_size, "test_read_bin.bin", 1);
+}
+
+void	t_read_battery(int buf_size, char *fn, int except)
+{
+	t_read(buf_size, -999999999999999999, fn);
+	t_read(buf_size, -2, fn);
+	t_read(buf_size, -1, fn);
+	t_read(buf_size, 0, fn);
+	t_read(buf_size, 1, fn);
+	t_read(buf_size, 4, fn);
+	t_read(buf_size, 7, fn);
+	t_read(buf_size, 8, fn);
+	t_read(buf_size, 9, fn);
+	t_read(buf_size, 15, fn);
+	t_read(buf_size, 16, fn);
+	t_read(buf_size, 17, fn);
+	if (except == 0)
+	{
+		t_read(buf_size, 63, fn);
+		t_read(buf_size, 64, fn);
+		t_read(buf_size, 65, fn);
+		t_read(buf_size, 66, fn);
+		t_read(buf_size, 67, fn);
+		t_read(buf_size, 100, fn);
+		t_read(buf_size, 512, fn);
+		t_read(buf_size, 1024, fn);
+		t_read(buf_size, 999999999999999999, fn);
+	}
+	return;
 }

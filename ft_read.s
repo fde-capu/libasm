@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/02 12:50:37 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/08 07:46:01 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/08 08:30:52 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ ft_read:
 	syscall
 	cmp	rax, 0
 	jl	write_failure
-	mov	rax, rdx
 	ret
 write_failure:
 	neg	rax

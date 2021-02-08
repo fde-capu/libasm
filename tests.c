@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 21:14:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/08 07:44:28 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:33:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,28 +134,28 @@ void	t_read(int buf_size, size_t count, char *file)
 {
 	int		expect[2];
 	int		error_[2];
-	void	*buf_a;
-	void	*buf_b;
+	void	*buf[4];
 	int		fd;
 
-	buf_a = calloc(buf_size, 1);
-	buf_b = calloc(buf_size, 1);
+	buf[0] = calloc(buf_size, 1);
+	buf[1] = calloc(buf_size, 1);
+	buf[2] = buf[0];
+	buf[3] = buf[1];
 	fd = open(file, O_RDONLY | O_SYNC);
-	printf("ft_read(%d, calloc(%d, 1), %zu);\n", fd, buf_size, count);
+	printf("ft_read(\'%s\', \'calloc(%d, 1)\', %zu);\n", file, buf_size, count);
 	fflush(stdout);
 	errno = 0;
-	expect[0] = read(fd, buf_a, count);
+	expect[0] = read(fd, buf[0], count);
 	error_[0] = errno;
 	close(fd);
+//	sleep(1);
 	fd = open(file, O_RDONLY | O_SYNC);
 	errno = 0;
-	expect[1] = ft_read(fd, buf_b, count);
+	expect[1] = read(fd, buf[1], count);
 	error_[1] = errno;
 	close(fd);
 	ko_ok(expect, error_);
-	ko_ok_strcmp(buf_a, buf_b);
-	free(buf_a);
-	free(buf_b);
+	ko_ok_strcmp(buf[0], buf[1]);
 	return ;
 }
 
