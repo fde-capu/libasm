@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 02:29:20 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/08 08:42:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:57:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,14 +166,19 @@ void	test_read(void)
 
 void	t_read_buf_size(int buf_size)
 {
+	int	double_free_fix;
+
+	double_free_fix = 0;
+	if (buf_size <= 1023)
+		double_free_fix = 1;
 	t_read_battery(buf_size, "test_read_0.txt", 0);
 	t_read_battery(buf_size, "test_read_1.txt", 0);
 	t_read_battery(buf_size, "test_read_3.txt", 0);
 	t_read_battery(buf_size, "test_read_15.txt", 0);
 	t_read_battery(buf_size, "test_read_16.txt", 0);
 	t_read_battery(buf_size, "test_read_17.txt", 0);
-	t_read_battery(buf_size, "test_read_alice.txt", 1);
-	t_read_battery(buf_size, "test_read_bin.bin", 1);
+	t_read_battery(buf_size, "test_read_alice.txt", double_free_fix);
+	t_read_battery(buf_size, "test_read_bin.bin", double_free_fix);
 }
 
 void	t_read_battery(int buf_size, char *fn, int except)
@@ -200,6 +205,7 @@ void	t_read_battery(int buf_size, char *fn, int except)
 		t_read(buf_size, 100, fn);
 		t_read(buf_size, 512, fn);
 		t_read(buf_size, 1024, fn);
+		t_read(buf_size, 1031, fn);
 		t_read(buf_size, 999999999999999999, fn);
 	}
 	return;
